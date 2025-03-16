@@ -26,7 +26,7 @@ export async function getCurrentBudget(accountId){
         );
         const endOfMonth=new Date(
             currentDate.getFullYear(),
-            currentDate.getMonth(),
+            currentDate.getMonth()+1,
             0
         );
 
