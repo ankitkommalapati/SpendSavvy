@@ -17,7 +17,7 @@ export async function getCurrentBudget(accountId){
             where:{
                 userId:user.id,
             }
-        });
+        })
         const currentDate=new Date();
         const startOfMonth=new Date(
             currentDate.getFullYear(),
@@ -26,7 +26,7 @@ export async function getCurrentBudget(accountId){
         );
         const endOfMonth=new Date(
             currentDate.getFullYear(),
-            currentDate.getMonth()+1,
+            currentDate.getMonth(),
             0
         );
 
