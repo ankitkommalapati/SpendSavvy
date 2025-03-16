@@ -5,8 +5,8 @@ import TransactionTable from '../_components/transaction-table'
 import { BarLoader } from 'react-spinners'
 import AccountChart from '../_components/account-chart'
 
-const AccountsPage = async({params}) => {
-    const accountData=await getAccountWithTransactions(params.id)
+export default async function AccountsPage({params}) {
+    const accountData=await getAccountWithTransactions(params.id);
     if (!accountData){
         notFound();
     }
@@ -41,4 +41,4 @@ const AccountsPage = async({params}) => {
   )
 }
 
-export default AccountsPage
+//export default AccountsPage
