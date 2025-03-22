@@ -2,12 +2,63 @@ import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } 
 import * as React from "react";
 
 export default function EmailTemplate({
-    userName="",
-    type="budget-alert",
+    userName="Ankit",
+    type="monthly-report",
     data={},
 }) {
     if (type==='monthly-report'){
+        return(
+        <Html>
+            <Head />
+            <Preview>Monthly Financial Report</Preview>
+            <Body style={styles.body}>
+            <Container style={styles.container}>
+                <Heading style={styles.title}>Monthly Financial Report</Heading>
 
+                <Text style={styles.text}>Hello {userName},</Text>
+                <Text style={styles.text}>
+                Here&rsquo;s your financial summary for {data?.month}:
+                </Text>
+
+                {/* Main Stats */}
+                <Section style={styles.statsContainer}>
+                <div style={styles.stat}>
+                    <Text style={styles.text}>Total Income</Text>
+                    <Text style={styles.heading}>${data?.stats.totalIncome}</Text>
+                </div>
+                <div style={styles.stat}>
+                    <Text style={styles.text}>Total Expenses</Text>
+                    <Text style={styles.heading}>${data?.stats.totalExpenses}</Text>
+                </div>
+                <div style={styles.stat}>
+                    <Text style={styles.text}>Net</Text>
+                    <Text style={styles.heading}>
+                    ${data?.stats.totalIncome - data?.stats.totalExpenses}
+                    </Text>
+                </div>
+                </Section>
+
+                {/* Category Breakdown */}
+                {data?.stats?.byCategory && (
+                <Section style={styles.section}>
+                    <Heading style={styles.heading}>Expenses by Category</Heading>
+                    {Object.entries(data?.stats.byCategory).map(
+                    ([category, amount]) => (
+                        <div key={category} style={styles.row}>
+                        <Text style={styles.text}>{category}</Text>
+                        <Text style={styles.text}>${amount}</Text>
+                        </div>
+                    )
+                    )}
+                </Section>
+                )}
+
+                {/* AI Insights */}
+
+            </Container>
+            </Body>
+        </Html>
+        );
     }
     if (type==='budget-alert'){
         return (
