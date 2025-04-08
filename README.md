@@ -29,3 +29,5 @@ SpendSavvy is a finance management designed to help users track their expenses, 
  - Secure and user-friendly interface
 
 Check out the vercel application here: [SpendSavvy](https://spend-savvy.vercel.app/)
+
+Edit: Working on enhancing the voice assistant feature and converting into a PWA.
